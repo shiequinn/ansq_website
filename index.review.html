@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/review.css">
+    <title>about us of iDesign by: A.N.S.Q Creating Website WEB Development Services</title>
+</head>
+<body>
+
+<div class="backToHome">
+        <a href="index.html" class="backToHomeLink"><i class="fas fa-home"></i> Back to Home</a>
+</div>
+
+<!-- Reviews Section -->
+<div class="reviews-header">
+  <h2>Client Reviews</h2>
+  <p>Here's what our clients have to say about us:</p>
+</div>
+
+<!-- Review Slider using Swiper -->
+<div class="client-item-container">
+  <!-- Swiper -->
+  <div class="swiper mySwiper" id="reviewSwiper">
+    <div class="swiper-wrapper" id="reviewWrapper">
+      
+      <!-- Static sample reviews (can be removed if only using API) -->
+      <div class="swiper-slide review-item">
+        <div class="review-content">
+          <p class="client-name">John Spencer</p>
+          <p class="client-position">multifix solutions</p>
+          <p class="client-review">"iDesign Web Developer Company did an amazing job on our website. They were professional, responsive, and delivered high-quality work. Highly recommend!"</p>
+        </div>
+      </div>
+      <div class="swiper-slide review-item">
+        <div class="review-content">
+          <p class="client-name">Jane Smith</p>
+          <p class="client-position">Marketing Director</p>
+          <p class="client-review">"The team at iDesign Web Developer Company is fantastic! They helped us redesign our website and the results are incredible. Thank you!"</p>
+        </div>
+      </div>
+      <div class="swiper-slide review-item">
+        <div class="review-content">
+          <p class="client-name">Michael Johnson</p>
+          <p class="client-position">Founder of Tech Innovations</p>
+          <p class="client-review">"I was impressed with the level of expertise and creativity that iDesign Web Developer Company brought to our project. They exceeded our expectations!"</p>
+        </div>
+      </div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swper-button-next" id="nextBtn"></div>
+    <div class="swiper-button-prev" id="prevBtn"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2025 iDesign by: A.N.S.Q Creating Website WEB Development Services. All rights reserved.</p>
+    <p>Website designed and developed by: A.N.S.Q Creating Website WEB Development Services.</p>
+    <p>Follow us on social media:</p>
+    <div class="social-media-icons">
+        <a href="https://www.facebook.com/iDesignWebDeveloper" target="_blank" rel="noopener" title="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/shiequinn" target="_blank" rel="noopener" title="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/shiequinn/" target="_blank" rel="noopener" title="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/shiequinn" target="_blank" rel="noopener" title="Visit our LinkedIn page"><i class="fab fa-linkedin"></i></a>
+    </div>
+    </div>
+
+
+ <script>
+let swiper;
+
+function renderReviews() {
+  const wrapper = document.getElementById('reviewWrapper');
+  wrapper.innerHTML = ''; // Clear existing slides
+
+  reviews.forEach((rev) => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide review-item';
+    slide.innerHTML = `
+      <div class="review-content">
+        <p class="client-name">${rev.name}</p>
+        <p class="client-position">${rev.position}</p>
+        <p class="client-review">"${rev.review}"</p>
+      </div>
+    `;
+    wrapper.appendChild(slide);
+  });
+}
+
+function initializeSwiper() {
+  if (swiper) {
+    swiper.destroy(true, true);
+  }
+  swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: '#nextBtn',
+      prevEl: '#prevBtn',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+}
+
+// Function to add a review and update slider
+function addReviewAndSlide(review) {
+  reviews.push(review);
+  renderReviews();
+  initializeSwiper();
+
+  // Wait until Swiper is initialized and then slide to the last (newest) review
+  // Use setTimeout to ensure Swiper has initialized
+  setTimeout(() => {
+    if (swiper) {
+      // slideToLoop slides to the last slide in loop mode
+      swiper.slideToLoop(reviews.length - 1);
+    }
+  }, 100);
+}
+
+// When user submits review
+document.getElementById('clientReviewForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('clientName').value.trim();
+  const position = document.getElementById('clientPosition').value.trim();
+  const reviewText = document.getElementById('clientReview').value.trim();
+
+  if (name && position && reviewText) {
+    addReviewAndSlide({
+      name,
+      position,
+      review: reviewText
+    });
+
+    // Optional: Clear form
+    document.getElementById('clientReviewForm').reset();
+  }
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderReviews();
+  initializeSwiper();
+});
+</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</body>
+</html>
