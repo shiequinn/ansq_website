@@ -18,18 +18,18 @@ function initReviewSwiper() {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
-    navigation: {
-      nextEl: '#nextBtn',
-      prevEl: '#prevBtn',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
   });
 }
 
@@ -56,11 +56,19 @@ function createReviewSlide(review) {
 }
 
 // Load reviews, create slides, and initialize Swiper
-function loadReviews() {
+async function loadReviews() {
   const reviewWrapper = document.querySelector('#reviewWrapper');
   reviewWrapper.innerHTML = ''; // Clear existing slides
 
-  let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+  let reviews = [];
+  try {
+    const response = await fetch('http://localhost:3000/api/reviews');
+    if (response.ok) {
+      reviews = await response.json();
+    }
+  } catch (err) {
+    console.error('Failed to fetch reviews:', err);
+  }
 
   // Add sample review if none exist
   if (reviews.length === 0) {
@@ -70,7 +78,6 @@ function loadReviews() {
       review: 'This is a sample review for testing.',
       rating: 4,
     }];
-    localStorage.setItem('reviews', JSON.stringify(reviews));
   }
 
   // Append slides
@@ -119,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Handle review form submission
-  document.getElementById('clientReviewForm').addEventListener('submit', (e) => {
+  document.getElementById('clientReviewForm').addEventListener('submit', async(e) => {
     e.preventDefault();
 
     const name = document.getElementById('clientName').value.trim();
@@ -138,33 +145,48 @@ document.addEventListener('DOMContentLoaded', () => {
       review: reviewText,
       rating,
     };
-
-    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-    reviews.push(newReview);
-    localStorage.setItem('reviews', JSON.stringify(reviews));
-
-    // Reset form
+try {
+    const response = await fetch('http://localhost:3000/api/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newReview)
+    });
+    if (!response.ok) {
+      throw new Error('Failed to post review');
+    }
+  // Reset form
     document.getElementById('clientReviewForm').reset();
     resetStars();
+    alert('Review submitted successfully');
 
     // Reload reviews
-    loadReviews();
+    await loadReviews();
+  } catch (err) {
+    console.error(err);
+    alert('Failed to post review');
+  }
   });
 
-  // Service section toggle
-  const titles = document.querySelectorAll('.service-title');
-  titles.forEach(title => {
-    title.addEventListener('click', () => {
-      const description = title.nextElementSibling;
-      const isOpen = description.classList.contains('show');
+ // Service section toggle
+const titles = document.querySelectorAll('.service-title');
 
-      document.querySelectorAll('.service-description').forEach(desc => desc.classList.remove('show'));
-      document.querySelectorAll('.service-title').forEach(t => t.classList.remove('active'));
+titles.forEach(title => {
+  title.addEventListener('click', () => {
+    const description = title.nextElementSibling;
+    const isOpen = description.classList.contains('show');
 
-      if (!isOpen) {
-        description.classList.add('show');
-        title.classList.add('active');
-      }
-    });
+    document.querySelectorAll('.service-description')
+      .forEach(desc => desc.classList.remove('show'));
+
+    document.querySelectorAll('.service-title')
+      .forEach(t => t.classList.remove('active'));
+
+    if (!isOpen) {
+      description.classList.add('show');
+      title.classList.add('active');
+    }
   });
+});
 });

@@ -234,6 +234,8 @@ li a.active:hover{
     color: #fff;
 }
 .services-list {
+    width: 100%; /* Full width */
+    height: 400px; /* Set height for service list */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /* 5 columns */
@@ -245,36 +247,23 @@ li a.active:hover{
 }
 
 .service-item {
-    border: 4px solid #ccc;
-    /* Light border */
-    border-radius: 8px;
-    /* Rounded corners */
-    padding: 10px;
-    /* Inner spacing */
-    text-align: center;
-    /* Left align text */
-    transition: transform 0.3s;
-    /* Smooth transition for hover effects */
+    position: relative; /* Position relative for absolute positioning of child elements if needed */
 }
-.service-description {
-    display: none;
-    font-size: 16px;
-    /* Description size */
-    margin-top: 10px;
-    /* Space above description */
-    font-weight: 400;
-    /* Normal weight */
-    line-height: 1.5;
-    /* Line height for readability */
-    text-align: justify;
-    /* Justify text for better alignment */
-    margin-bottom: 0;
-    /* Remove bottom margin */
-    padding: 0;
-    /* Remove padding */
+.service-item .service-description {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  z-index: 10;
 
+  margin: 0;
+  padding: 12px;
+  background: #333;
+  color: #fff;
+  border-radius: 0 0 8px 8px;
 }
-.service-description.show {
+.service-item .service-description.show {
     display: block;
     /* Show description on click */
     color: #eae3e3;
@@ -344,6 +333,7 @@ li a.active:hover{
 }
 @media (max-width: 1024px) {
     .services-list {
+        height: 800px; /* Set height for service list */
         grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
     }
     .services-header {
@@ -353,10 +343,15 @@ li a.active:hover{
         padding: 20px;
         margin-top: 40px; 
     }
+       .service-item .service-description {
+        top: 30%;
+     
+    }
 }
 
 @media (max-width: 840px){
     .services-list {
+        height : 800px; /* Set height for service list */
         grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
 
     }
@@ -367,16 +362,27 @@ li a.active:hover{
         padding: 20px;
         margin-top: 40px; 
     }
+       .service-item .service-description {
+        top: 30%;
+     
+    }
 
 }
 @media (max-width: 768px) {
     .services-list {
+        height: 700px; /* Set height for service list */
         grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+       .service-item .service-description {
+        top: 40%;
+     
     }
 }
 
 @media (max-width: 480px) {
     .services-list {
+        width: 100%; /* Full width for service list */
+        height: 1200px; /* Set height for service list */
         grid-template-columns: 1fr; /* 1 column for mobile devices */
     }
     .services-header {
@@ -391,6 +397,10 @@ li a.active:hover{
         height: 350px; /* Adjust height for smaller screens */
         object-fit: cover; /* Cover the area */
         border-radius: 10px; /* Rounded corners */
+    }
+      .service-item .service-description {
+        top: 50%;
+     
     }
 
 }
@@ -429,9 +439,13 @@ li a.active:hover{
     }
     .services-list {
         width:100%;
-        height: auto; /* Adjust height for smaller screens */
+        height: 1200px; /* Adjust height for smaller screens */
         display: grid; /* Use grid layout */
         grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+    .service-item .service-description {
+        top: 50%;
+     
     }
 
 

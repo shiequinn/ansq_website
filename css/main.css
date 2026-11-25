@@ -1399,9 +1399,8 @@ Video {
 .service-description.show {
     display: block;
     /* Show description on click */
-    color: #eae3e3;
+    color: black;
 }
-
 @keyframes slideInFromLeft {
     0% {
         transform: translateX(-100%);
@@ -1536,10 +1535,9 @@ Video {
     /* Full width */
     height: 100%;
     /* Full height */
-    background-color:transparent;
     /* Light background color */
-    padding: 20px;
-    gap:30px;
+    padding: 10px;
+    gap:20px;
     /* Inner spacing */
     display:flex;
     /* Flexbox for layout */
@@ -1570,6 +1568,7 @@ Video {
     /* Center items horizontally */
     overflow: hidden;
     /* Hide overflow for sliding effect */
+    
 
 
 }
@@ -1592,23 +1591,25 @@ Video {
 /* Style for the content wrapper that will slide */
 #reviewWrapper {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    overflow: hidden;
-    width:100%;
-    height:100%;
+    height: 100%;
+    width: 100%;
 }
 
 .client-item-container{
     position: relative;
-    max-width: 60%;
+    justify-content: center;
+    display: flex;  
+    overflow: hidden;
+    width:100%;
     height: 100%;
     /* Auto height to fit content */
-    margin: 20px;
-    padding: 20px;
+    padding:30px;
+
 
 }
 .swiper-wrapper{
     width:100%;
+    padding:10px;
 
 }
 
@@ -1618,37 +1619,6 @@ Video {
     display: flex;
     align-items: center;
 }
-
-/* Navigation buttons */
-.prev-btn,
-.next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #555;
-    padding: 10px;
-    z-index: 10;
-    transition: color 0.3s;
-}
-
-.prev-btn:hover,
-.next-btn:hover {
-    color: #333;
-    /* Darker color on hover */
-}
-
-#prevBtn {
-    left: -40px;
-}
-
-#nextBtn {
-    right: -40px;
-}
-
 .review-form {
  display: flex;
     flex-direction:column;
@@ -1671,12 +1641,10 @@ Video {
 .review-item {
     width:100%;
     height: auto;
-    background-color: transparent;
-    display: block; /* or just remove this line so default applies */
     align-items: center;
     flex-direction: row;
-    justify-content: flex-start;
-    margin: 10px;
+    justify-content:center;
+    padding:20px;
 }
 .review-item.active {
   display: flex; /* or block, to show the selected review */
@@ -2052,11 +2020,12 @@ Video {
         width: 100%;
         /* Full width for smaller screens */
         height: auto;
-display:flex;
+        display:flex;
         /* Auto height to fit content */
         margin: 0;
         padding:0;
         /* Adjust margin for better spacing */
+    
     }
 
     .review-item {
@@ -2080,9 +2049,9 @@ align-items: center;
     }
 
     .client-profile {
-        width: 80px;
+        width: 100%;
         /* Smaller width for profile image */
-        height: 80px;
+        height:100%;
         /* Smaller height for profile image */
     }
 
