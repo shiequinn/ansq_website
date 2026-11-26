@@ -14,6 +14,20 @@
       "name": "mysql2",
       "database": "reviews_db",
       "username": "root"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "mysql-2784edef-shiequinn0601-6897.l.aivencloud.com",
+      "port": 15191,
+      "driver": "MySQL",
+      "name": "Aiven Cloud",
+      "database": "defaultdb",
+      "username": "avnadmin"
     }
   ]
 }
