@@ -62,7 +62,7 @@ async function loadReviews() {
 
   let reviews = [];
   try {
-    const response = await fetch('http://ansq_website.onrender.com');
+    const response = await fetch('https://ansq-website.onrender.com');
     if (response.ok) {
       reviews = await response.json();
     }
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
       rating,
     };
 try {
-    const response = await fetch('http://ansq_website.onrender.com', {
+    const response = await fetch('https://ansq-website.onrender.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
