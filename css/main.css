@@ -16,12 +16,12 @@ html {
 /* Define the animation for background color */
 @keyframes colorChange {
     0% {
-        background-color: #ff7f50;
+        background-color: #f5bd68;
         /* Starting color (Coral) */
     }
 
     25% {
-        background-color: #6a5acd;
+        background-color: #f5bd68;
         /* Slate Blue */
     }
 
@@ -31,7 +31,7 @@ html {
     }
 
     75% {
-        background-color: #ff69b4;
+        background-color: #f5bd68;
         /* Hot Pink */
     }
 
