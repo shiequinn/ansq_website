@@ -779,7 +779,7 @@ Video {
 }
 
 .project-item a:hover {
-    background-color: #ED8171;
+    background-color: #f5bd68;
     /* Darker background on hover */
     color: #f8f8f8;
     /* Light text color on hover */
@@ -791,7 +791,7 @@ Video {
 .project-image {
     position: relative;
     /* Needed for pseudo-element positioning */
-    object-fit: cover;
+    object-fit:cover;
     /* Maintain aspect ratio */
     border-radius: 10px;
     /* Rounded corners */
@@ -804,7 +804,7 @@ Video {
 }
 
 .project-image:hover {
-    transform: scale(1.07);
+    transform: scale(1.0);
     /* Slightly enlarge the image on hover */
 }
 

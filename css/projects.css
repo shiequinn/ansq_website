@@ -435,7 +435,7 @@ transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .project-image:hover {
-    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    transform: scale(1.0); /* Slightly enlarge the image on hover */
 }
 /* Responsive styles for smaller screens */
 @media (max-width: 840px){
