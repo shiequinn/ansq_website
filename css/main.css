@@ -288,7 +288,7 @@ hr {
         /* adjust based on your header height */
         left: 0;
         width: 100%;
-        background-color: #ED8171;
+        background-color: #f5bd68;
         /* match your header color or desired bg */
         z-index: 999;
         /* ensure it's above other elements */
@@ -318,7 +318,7 @@ hr {
         /* adjust based on your header height */
         left: 0;
         width: 100%;
-        background-color: #ED8171;
+        background-color: #f5bd68;
         /* match your header color or desired bg */
         z-index: 999;
         /* ensure it's above other elements */

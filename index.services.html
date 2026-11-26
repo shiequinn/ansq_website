@@ -84,17 +84,21 @@
     </div>
 
 <script>
-document.querySelectorAll(".service-title").forEach((title) => {
-  title.addEventListener("click", () => {
-    const description = document.getElementById(title.dataset.description);
-    const wasOpen = description.classList.contains("show");
+const titles = document.querySelectorAll('.service-title');
+titles.forEach(title => {
+  title.addEventListener('click', () => {
+    const description = title.nextElementSibling;
+    const isOpen = description.classList.contains('show');
 
-    document.querySelectorAll(".service-description").forEach((item) => {
-      item.classList.remove("show");
-    });
+    document.querySelectorAll('.service-description')
+      .forEach(desc => desc.classList.remove('show'));
 
-    if (!wasOpen) {
-      description.classList.add("show");
+    document.querySelectorAll('.service-title')
+      .forEach(t => t.classList.remove('active'));
+
+    if (!isOpen) {
+      description.classList.add('show');
+      title.classList.add('active');
     }
   });
 });
