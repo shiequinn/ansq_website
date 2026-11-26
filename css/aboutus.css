@@ -8,28 +8,10 @@
     
 }
 html{
-    color: #333;
+    color: black;
     overflow-x: hidden;
     width: 100%;
     height: 100%;
-}
-/* Define the animation for background color */
-@keyframes colorChange {
-  0% {
-    background-color: #ff7f50; /* Starting color (Coral) */
-  }
-  25% {
-    background-color: #6a5acd; /* Slate Blue */
-  }
-  50% {
-    background-color: #20b2aa; /* Light Sea Green */
-  }
-  75% {
-    background-color: #ff69b4; /* Hot Pink */
-  }
-  100% {
-    background-color: #ff7f50; /* Back to Coral */
-  }
 }
 /* Style the body to animate background */
 body {
@@ -121,8 +103,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .backToHomeLink:hover {
-  background-color:#ED8171;
-    color: #f8f8f8;
+  background-color:#f5bd68;
+    color: black;
 }
 
 .about-us-container {
@@ -139,7 +121,7 @@ h1,h2,h3,h4,h5,h6{
     /* Heading size */
     text-align: center;
     margin-bottom: 20px;
-    color: #eae3e3;
+    color: black;
     /* Heading color */
     font-weight: 600;
     /* Heading weight */
@@ -181,7 +163,7 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     /* Center text */
     padding: 20px;
-    background: beige;
+    background: #82785a9d;
     /* Background for each section */
     border-radius: 8px;
     /* Rounded corners */
@@ -541,7 +523,7 @@ h1,h2,h3,h4,h5,h6{
 .footer {
     width: 100%;
     height: 150px;
-    background-color: #ED8171;
+    background-color: #f5bd68;
     display: flex;
     flex-direction: column;
     align-items: center;

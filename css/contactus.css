@@ -13,24 +13,7 @@ html{
     width: 100%;
     height: 100%;
 }
-/* Define the animation for background color */
-@keyframes colorChange {
-  0% {
-    background-color: #ff7f50; /* Starting color (Coral) */
-  }
-  25% {
-    background-color: #6a5acd; /* Slate Blue */
-  }
-  50% {
-    background-color: #20b2aa; /* Light Sea Green */
-  }
-  75% {
-    background-color: #ff69b4; /* Hot Pink */
-  }
-  100% {
-    background-color: #ff7f50; /* Back to Coral */
-  }
-}
+
 /* Style the body to animate background */
 body {
   margin: 0; /* Remove default margin */
@@ -126,8 +109,8 @@ hr{
 }
 
 .backToHomeLink:hover {
-    background-color:#ED8171;
-    color: #f8f8f8;
+  background-color:#f5bd68;
+    color: black;
 }
 /*contact us section*/
 .contact-us {
@@ -264,7 +247,7 @@ hr{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, rgb(139, 191, 222), #ffffff);
+    background: linear-gradient(to right, #f5bd68, #ffffff);
     width: 100%;
     margin: 20px auto;
     /* Center the container */
@@ -759,7 +742,7 @@ textarea {
 .footer {
     width: 100%;
     height: 150px;
-    background-color: #ED8171;
+    background-color: #f5bd68;
     display: flex;
     flex-direction: column;
     align-items: center;

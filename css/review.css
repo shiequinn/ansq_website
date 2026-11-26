@@ -13,33 +13,6 @@ html, body {
   flex-direction: column;
 }
 
-/* Define the animation for background color */
-@keyframes colorChange {
-    0% {
-        background-color: #ff7f50;
-        /* Starting color (Coral) */
-    }
-
-    25% {
-        background-color: #6a5acd;
-        /* Slate Blue */
-    }
-
-    50% {
-        background-color: #20b2aa;
-        /* Light Sea Green */
-    }
-
-    75% {
-        background-color: #ff69b4;
-        /* Hot Pink */
-    }
-
-    100% {
-        background-color: #ff7f50;
-        /* Back to Coral */
-    }
-}
 
 /* Style the body to animate background */
 body {
@@ -148,8 +121,8 @@ hr {
 }
 
 .backToHomeLink:hover {
-  background-color:#ED8171;
-    color: #f8f8f8;
+  background-color:#f5bd68;
+    color: black;
 }
 
 /* reviews section */
@@ -248,11 +221,13 @@ hr {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+   
 
 }
 .mySwiper {
     width: 100%;
     padding:20px 0;
+    
 
 }
 
@@ -291,6 +266,10 @@ hr {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
     box-sizing: border-box;
     /* Add subtle shadow for depth */
+   background: linear-gradient(to right, #f5bd68, #ffffff);
+    border-radius: 10px;
+
+
 }
 .swiper-wrapper{
     display: grid !important;
@@ -325,16 +304,6 @@ hr {
 
 }
 
-.client-profile img {
-    width: 100%;
-    /* Make the image fill the container */
-    height: 100%;
-    /* Make the image fill the container */
-    object-fit: cover;
-    /* Maintain aspect ratio and cover the container */
-    align-items: center;
-}
-
 
 .client-name {
     font-weight: bold;
@@ -344,7 +313,7 @@ hr {
 }
 
 .client-position {
-    color: #eae3e3;
+    color: orangered;
     /* Grey color for position text */
     margin: 0;
     /* Remove default margin */
@@ -718,7 +687,7 @@ hr {
 .footer {
     width: 100%;
     height: 150px;
-    background-color: #ED8171;
+    background-color:#f5bd68;
     display: flex;
     flex-direction: column;
     align-items: center;
