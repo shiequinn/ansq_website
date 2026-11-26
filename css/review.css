@@ -244,17 +244,15 @@ hr {
 }
 
 .client-item-container{
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    height: 100%;
-    /* Auto height to fit content */
-    margin: 20px;
+    width:100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 
 }
-.swiper-wrapper{
-    width:100%;
+.mySwiper {
+    width: 100%;
+    padding:20px 0;
 
 }
 
@@ -263,36 +261,6 @@ hr {
     position: relative;
     display: flex;
     align-items: center;
-}
-
-/* Navigation buttons */
-.prev-btn,
-.next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
-    color: #555;
-    padding: 10px;
-    z-index: 10;
-    transition: color 0.3s;
-}
-
-.prev-btn:hover,
-.next-btn:hover {
-    color: #333;
-    /* Darker color on hover */
-}
-
-#prevBtn {
-    left: -40px;
-}
-
-#nextBtn {
-    right: -40px;
 }
 
 .review-form {
@@ -315,14 +283,23 @@ hr {
 }
 
 .review-item {
-    width:100%;
+    width: auto !important;
+    margin-right: 0 !important;
     height: auto;
-    background-color: transparent;
-    display: block; /* or just remove this line so default applies */
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 10px;
+    border-radius:12px;
+    padding:25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
+    /* Add subtle shadow for depth */
+}
+.swiper-wrapper{
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    transform: none !important;
+    width: 100% !important;
+
+
 }
 .review-item.active {
   display: flex; /* or block, to show the selected review */
@@ -358,10 +335,6 @@ hr {
     align-items: center;
 }
 
-.review-content {
-    flex: 1;
-    /* Let the review content take the remaining space */
-}
 
 .client-name {
     font-weight: bold;
@@ -522,6 +495,9 @@ hr {
         left: -50px;
         /* Adjust position for smaller screens */
     }
+       .swiper-wrapper{
+        grid-template-columns:1fr !important;
+    }
 
 }
 
@@ -661,6 +637,9 @@ hr {
         font-size: 14px;
         /* Smaller font size for links */
     }
+       .swiper-wrapper{
+        grid-template-columns:1fr !important;
+    }
 
 }
 @media (max-width: 390px) {
@@ -679,6 +658,9 @@ hr {
         /* Use flexbox for layout */
 
 
+    }
+    .swiper-wrapper{
+        grid-template-columns:1fr !important;
     }
 
     .reviews-container {
@@ -719,17 +701,10 @@ hr {
         width:100%;
         height: auto;
         display:flex;
-align-items: center;
+        align-items: center;
         /* Full width for smaller screens */
         padding: 3px;
         /* Adjust padding for smaller screens */
-    }
-
-    .client-profile {
-        width: 80px;
-        /* Smaller width for profile image */
-        height: 80px;
-        /* Smaller height for profile image */
     }
 
     .review-content {

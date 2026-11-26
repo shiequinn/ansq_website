@@ -31,20 +31,16 @@
     <div class="swiper-wrapper" id="reviewWrapper">
       
       <!-- Static sample reviews (can be removed if only using API) -->
+       <div class="swiper-slide">
         <div class="review-content">
           <p class="client-name">Antonio</p>
           <p class="client-position">Owner of multifix solutions HK</p>
           <p class="client-review">"iDesign Web Developer Company did an amazing job on our website. They were professional, responsive, and delivered high-quality work. Highly recommend!"</p>
         </div>
       </div>
+      </div>
    
       </div>
-    <!-- Add Arrows -->
-    <div class="swper-button-next" id="nextBtn"></div>
-    <div class="swiper-button-prev" id="prevBtn"></div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
 </div>
 
 <!-- Footer -->
@@ -68,24 +64,19 @@ function initReviewSwiper() {
   if (reviewSwiper) {
     reviewSwiper.destroy(true, true);
   }
+
   reviewSwiper = new Swiper('.mySwiper', {
     slidesPerView: 1,
     spaceBetween: 20,
-    loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+    loop: false,
+    breakpoints: {
+      768: {slidesPerView: 2},
+      1024: {slidesPerView: 3}
+    }
   });
 }
+ 
+
 
 // Create a slide element for a review
 function createReviewSlide(review) {
