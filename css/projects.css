@@ -378,7 +378,7 @@ li a.active:hover{
     height: auto;
     margin: 20px;
     padding: 10px;
-    background-color:#82785a9d;
+    background-color:#f5bd68;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     border-radius: 10px;
     border: 1px solid #ccc;  /* Light border */
@@ -419,7 +419,7 @@ li a.active:hover{
     /* Remove default padding */
 }
 .project-item a:hover {
-    background-color: #f5bd68;
+    background-color: white;
     /* Change background color on hover */
     color: black;
     /* Change text color on hover */
