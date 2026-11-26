@@ -187,6 +187,7 @@ hr {
     /* remove default margin */
     padding: 0;
     /* remove default padding */
+    background-color: #f5bd68; /* set background color for nav menu */
 
 }
 
