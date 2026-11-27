@@ -427,8 +427,8 @@ hr{
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
+    margin-top: 10px;
   
 }
 
@@ -462,22 +462,16 @@ hr{
 .footer a:focus {
     color: #f8f8f8;
 }
+
 @media (max-width: 360px) {
     .footer {
         width:100%;
         /* Full width for smaller screens */    
-        height: auto;
+        height: 300px;
         /* Adjust height for smaller screens */
+        padding:20px;
     }
-
-    .footer p {
-        font-size: 12px;
-        /* Smaller font size for paragraphs */
-    }
-
     .footer a {
-        font-size: 16px;
-        /* Smaller font size for links */
         padding:10px;
     }
     .footer a:hover {
@@ -498,3 +492,4 @@ hr{
     }
 
 }
+
